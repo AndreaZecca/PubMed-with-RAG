@@ -13,3 +13,5 @@ torch
 langchain
 huggingface_hub
 text_generation
+xmltodict
+langchainhub

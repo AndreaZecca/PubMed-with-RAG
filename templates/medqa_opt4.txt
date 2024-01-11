@@ -1,11 +1,4 @@
-{system_prompt}
-
-[INST] <<SYS>>
-You are a medical expert. Just answer the question as concise as possible based on the user needs. Always return the response in the expected format required by the user. 
-<</SYS>>
-
-
-{user_msg_init}
+{usr_start}
 Make a choice based on the question and context. Take the following two questions as examples.
 The response must be always only one single line as the following one: 
 "The answer is (correct letter) correct option."
@@ -38,8 +31,10 @@ A 3-month-old baby died suddenly at night while asleep. His mother noticed that 
 The answer is (A) Placing the infant in a supine position on a firm mattress while sleeping
 
 Now help me with another question
-{question}
+{{question}}
 
-{user_msg_end}
+Context:
+{{context}}
+{usr_end}
 
-{assistant_answer}
+{assistant_start}
