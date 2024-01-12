@@ -37,7 +37,9 @@ llm = HuggingFacePipeline.from_model_id(
         pipeline_kwargs={"max_new_tokens": 100},
     )
 
-retriever = PubMedRetriever(search_type="similarity_score_threshold", top_k_results=5, score_thresholds=0.1, search_kwargs={"score_threshold": 0.01})
+# retriever = PubMedRetriever(search_type="similarity_score_threshold", top_k_results=5, score_thresholds=0.1, search_kwargs={"score_threshold": 0.01})
+
+
 
 def format_docs(docs):
     with open('log_docs.txt', 'w') as f:
