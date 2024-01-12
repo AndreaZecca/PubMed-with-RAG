@@ -17,3 +17,5 @@ xmltodict
 langchainhub
 spacy
 scispacy
+pymilvus
+milvus
