@@ -57,7 +57,7 @@ for i, (question, opa, opb, opc, opd, answer) in enumerate(zip(questions, option
     })  
 
 import json
-with open('../altro_dataset.jsonl', 'w') as outfile:
+with open('../medmcqa_opt4.jsonl', 'w') as outfile:
     for entry in formatted_question:
         json.dump(entry, outfile)
         outfile.write('\n')
