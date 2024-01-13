@@ -7,9 +7,9 @@ conn = connections.connect(
   port='19530'
 )
 from pymilvus import utility
-print(utility.has_collection("pubmed"))
+print(utility.has_collection("medmcqa"))
 
 from pymilvus import Collection
-collection = Collection("pubmed")
+collection = Collection("medmcqa")
 
 print(collection.num_entities)

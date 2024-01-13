@@ -19,3 +19,5 @@ spacy
 scispacy
 pymilvus
 milvus
+tqdm
+click
