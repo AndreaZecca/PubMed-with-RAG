@@ -27,6 +27,8 @@ usr_template = None
 
 global_context = []
 
+embedder = HuggingFaceEmbeddings(model_name="neuml/pubmedbert-base-embeddings")
+
 def format_docs(docs):
     global global_context
     global_context = [d.page_content for d in docs]
@@ -40,8 +42,6 @@ def test_dataset(dataset, llm, model):
 
     prompt = ChatPromptTemplate.from_template(usr_template)
 
-    embedder = HuggingFaceEmbeddings(model_name="neuml/pubmedbert-base-embeddings")
-
     vector_db = Milvus(
         embedder,
         connection_args={"host": "127.0.0.1", "port": "19530"},
@@ -49,7 +49,7 @@ def test_dataset(dataset, llm, model):
     )
     
     # Retrieve and generate using the relevant snippets of the blog.
-    retriever = vector_db.as_retriever()
+    retriever = vector_db.as_retriever(search_kwargs={"k":5})
 
     chain = (
         {"context": retriever | format_docs, "question": RunnablePassthrough()}
@@ -61,11 +61,11 @@ def test_dataset(dataset, llm, model):
     questions = parse_dataset(f"{dataset}.jsonl")
 
     correct = 0
-    toal_questions = 5#len(questions)
-
+    total_questions = len(questions)
+    
     all_questions = []
     
-    for q in tqdm(questions[:5]):      
+    for q in tqdm(questions):      
         question = q["question"]
         response = chain.invoke(question)
         response_idx = get_index_from_res(response)
@@ -82,9 +82,9 @@ def test_dataset(dataset, llm, model):
         })
     output_json = {
         "questions": all_questions,
-        "tot_questions": toal_questions,
+        "tot_questions": total_questions,
         "right_answers": correct,
-        "accuracy": correct / toal_questions
+        "accuracy": correct / total_questions
     }
     with open(get_results_path(model, dataset), "w") as f:
         json.dump(output_json, f)    
