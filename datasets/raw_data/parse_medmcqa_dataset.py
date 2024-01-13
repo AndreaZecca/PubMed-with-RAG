@@ -4,11 +4,14 @@ DATA_PATH = './validation-00000-of-00001.parquet'
 
 df = pd.read_parquet(DATA_PATH)
 
+interested_columns = ['question', 'opa', 'opb', 'opc', 'opd', 'cop', 'choice_type']
+
+df = df[interested_columns]
+
 # drop null values
 df = df.dropna()
 
-# get rows where choice_type is 'single'
-df = df[df['choice_type'] == 'single']
+# df = df[df['choice_type'] == 'single']
 
 # get questions
 questions = df['question'].values
