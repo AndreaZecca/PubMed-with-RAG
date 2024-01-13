@@ -5,9 +5,19 @@ declare -a models=(
 )
 
 # declare a string variable 
-datasets="medqa_opt4,medqa_opt5,medmcqa_opt4"
+declare -a datasets=(
+    'medqa_opt4'
+    'medqa_opt5'
+    'medmcqa_opt4'
+)
+
+
+datasets_string="${datasets[0]}"
+
+for dataset in "${datasets[@]:1}"; do
+    datasets_string="$datasets_string,$dataset"
+done
 
 for model in "${models[@]}"; do
-    # passing the datasets as a 
-    python3 main.py --model $model --datasets $datasets
+    python3 main.py --model $model --datasets $datasets_string
 done
