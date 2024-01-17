@@ -4,12 +4,12 @@ declare -a models=(
     'mistralai/Mistral-7B-Instruct-v0.1'
 )
 declare -a datasets=(
-    'medqa_opt4'
-    'medqa_opt5'
-    'medmcqa_opt4'
-    # 'mmlu_opt4'
+    #'medqa_opt4'
+    #'medqa_opt5'
+    #'medmcqa_opt4'
+    'mmlu_opt4'
 )
-debug=false
+debug=true
 rerank=false
 only_question=false
 rag=false

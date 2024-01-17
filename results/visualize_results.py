@@ -5,7 +5,7 @@ from tabulate import tabulate
 results = {}
 
 for model_name in os.listdir('.'):
-    if model_name.startswith('.') or model_name.startswith('..') or model_name.endswith('.py') or 'only_question' in model_name:
+    if model_name.startswith('.') or model_name.startswith('..') or model_name.endswith('.py') or model_name.startswith('other_results'):
         continue
     results[model_name] = {}
     for dataset_name in sorted(os.listdir(f'{model_name}/')):
@@ -21,4 +21,5 @@ df = pd.DataFrame(results).transpose()
 df = df.sort_index()
 # sort columns by name
 df = df[df.columns.sort_values()]
+df.to_csv('all_results.csv')
 print(tabulate(df, headers='keys', tablefmt='psql'))

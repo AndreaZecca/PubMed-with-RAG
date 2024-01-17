@@ -1,0 +1,28 @@
+{
+    "questions": [
+        {
+            "question": "In a population of giraffes, an environmental change occurs that favors individuals that are tallest. As a result, more of the taller individuals are able to obtain nutrients and survive to pass along their genetic information. This is an example of\n(A) directional selection.\n(B) stabilizing selection.\n(C) sexual selection.\n(D) disruptive selection.\n",
+            "response": "The correct answer is (A) directional selection.",
+            "response_idx": "A",
+            "answer_idx": "A",
+            "context": []
+        },
+        {
+            "question": "Which of the changes below following the start codon in an mRNA would most likely have the greatest deleterious effect?\n(A) a deletion of a single nucleotide\n(B) a deletion of a nucleotide triplet\n(C) a single nucleotide substitution of the nucleotide occupying the first codon position\n(D) a single nucleotide substitution of the nucleotide occupying the third codon position\n",
+            "response": "The correct answer is (C) a single nucleotide substitution of the nucleotide occupying the first codon position.",
+            "response_idx": "C",
+            "answer_idx": "A",
+            "context": []
+        },
+        {
+            "question": "The energy given up by electrons as they move through the electron transport chain is used to\n(A) break down glucose\n(B) make glucose\n(C) produce ATP\n(D) make NADH\n",
+            "response": "The correct answer is (C) produce ATP.",
+            "response_idx": "C",
+            "answer_idx": "C",
+            "context": []
+        }
+    ],
+    "tot_questions": 3,
+    "right_answers": 2,
+    "accuracy": 0.6666666666666666
+}
