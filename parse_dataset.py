@@ -45,8 +45,15 @@ def get_index_from_res(response):
 
     if len(match) == 0:
         return "F"
+
     
     if len(match) > 1:
-        return "F"
+        pattern = r"(?:The correct\s)?answer is:? (\(A\)|\(B\)|\(C\)|\(D\)|\(E\))"
+        match = re.findall(pattern, response)
     
+        if len(match) == 0:
+            return "F"
+
+        return match[0].replace("(", "").replace(")","")
+
     return match[0].replace("(", "").replace(")","")

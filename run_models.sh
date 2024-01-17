@@ -7,9 +7,10 @@ declare -a datasets=(
     'medqa_opt4'
     'medqa_opt5'
     'medmcqa_opt4'
+    # 'mmlu_opt4'
 )
-debug=true
-rerank=true
+debug=false
+rerank=false
 only_question=false
 rag=false
 

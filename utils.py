@@ -11,13 +11,15 @@ model_path_dict = {
 dataset_path_dict = {
     'medqa_opt4': 'medqa_opt4.txt',
     'medqa_opt5': 'medqa_opt5.txt',
-    'medmcqa_opt4': 'medmcqa_opt4.txt'
+    'medmcqa_opt4': 'medmcqa_opt4.txt',
+    'mmlu_opt4': 'mmlu_opt4.txt'
 }
 
 results_path_dict = {
     'medqa_opt4': 'medqa_opt4.json',
     'medqa_opt5': 'medqa_opt5.json',
-    'medmcqa_opt4': 'medmcqa_opt4.json'
+    'medmcqa_opt4': 'medmcqa_opt4.json',
+    'mmlu_opt4': 'mmlu_opt4.json'
 }
 
 def get_template(model_name, dataset_name, rag):

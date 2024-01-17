@@ -77,8 +77,6 @@ def test_dataset(dataset, llm, model, rag):
     with open(get_template(model, dataset, rag)) as f:
         usr_template = f.read()
 
-    print(f"Template: {usr_template}")
-
     prompt = ChatPromptTemplate.from_template(usr_template)
     if rag:
         vector_db = Milvus(
@@ -144,7 +142,6 @@ def test_dataset(dataset, llm, model, rag):
     if global_debug:
         result_path = result_path.replace('.json', '_debug.json')
 
-    print(f"Saving results to {result_path}")
     with open(result_path, "w") as f:
         json.dump(output_json, f, indent=4)   
     
