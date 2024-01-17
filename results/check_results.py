@@ -66,7 +66,7 @@ for model_name in os.listdir('.'):
     print(f'Checking {model_name}...')
     for results_name in os.listdir(f'./{model_name}/'):
         count = 0
-        if results_name.startswith('.') or results_name.startswith('..') or results_name.endswith('.py') or 'noRAG' in results_name:
+        if results_name.startswith('.') or results_name.startswith('..') or results_name.endswith('.py') : #or 'noRAG' in results_name
             continue
         print(f'Checking {results_name}...')
         results = None

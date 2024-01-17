@@ -38,14 +38,14 @@
         {
             "question": "A 39-year-old man presents to the emergency department because of progressively worsening chest pain and nausea that started at a local bar 30 minutes prior. The pain radiates to the epigastric area. He has a 5-year history of untreated hypertension. He has smoked 1 pack of cigarettes daily for the past 5 years and started abusing cocaine 2 weeks before his emergency room visit. The patient is diaphoretic and in marked distress. What should be the first step in management?\n(A) Diltiazem\n(B) Labetalol\n(C) Propranolol\n(D) Reassurance and continuous monitoring\n",
             "response": "The answer is (D) Reassurance and continuous monitoring is not the first step in management.\n\nThe correct answer is: (B) Labetalol.",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "D",
             "context": []
         },
         {
             "question": "A 68-year-old male comes to the physician for evaluation of right flank pain. He has a history of diabetes and peripheral artery disease. His blood pressure is 160/90 mm Hg. Physical examination shows abdominal tenderness and right flank tenderness. An ultrasound shows dilation of the right ureter and renal pelvis. Which of the following is the most likely underlying cause of this patient's condition?\n(A) Renal artery stenosis\n(B) Benign prostatic hyperplasia\n(C) Common iliac artery aneurysm\n(D) Urethral stricture\n",
             "response": "The answer is (D) Urethral stricture is not associated with right flank pain.\n\nThe answer is (A) Renal artery stenosis.\n\nExplanation:\n\nRenal artery",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "C",
             "context": []
         },
@@ -150,7 +150,7 @@
         {
             "question": "A 3-month-old infant is brought to her pediatrician because she coughs and seems to have difficulty breathing while feeding. In addition, she seems to have less energy compared to other babies and appears listless throughout the day. She was born by cesarean section to a G1P1 woman with no prior medical history and had a normal APGAR score at birth. Her parents say that she has never been observed to turn blue. Physical exam reveals a high-pitched holosystolic murmur that is best heard at the lower left sternal border. The most likely cause of this patient's symptoms is associated with which of the following abnormalities?\n(A) 22q11 deletion\n(B) Deletion of genes on chromosome 7\n(C) Lithium exposure in utero\n(D) Maternal alcohol consumption\n",
             "response": "The answer is (D) Maternal alcohol consumption is not associated with the symptoms described in the patient.\n\nThe most likely cause of this patient's symptoms is associated with which of the following abnormalities?\n(A) Vent",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "A",
             "context": []
         },
@@ -710,7 +710,7 @@
         {
             "question": "A 65-year old man presents with gradually worsening rigidity of his arms and legs and slowness in performing tasks. He says he has also noticed hand tremors, which increase at rest and decrease with focused movements. On examination, the patient does not swing his arms while walking and has a shortened, shuffling gait. An antiviral drug is prescribed which alleviates the patient\u2019s symptoms. Which of the following drugs was most likely prescribed to this patient?\n(A) Amantadine\n(B) Ribavirin\n(C) Levodopa\n(D) Zidovudine\n",
             "response": "The answer is (A) Amantadine. (B), (C), and (D) are incorrect.",
-            "response_idx": "F",
+            "response_idx": "A",
             "answer_idx": "A",
             "context": []
         },
@@ -1480,7 +1480,7 @@
         {
             "question": "A 65-year-old man presents with painless swelling of the neck over the past week. He also says he has been having intermittent fevers and severe night sweats which require a change of bed sheets the next day. His past medical history is significant for human immunodeficiency virus (HIV) diagnosed 10 years ago with which he admits to not always being compliant with his antiretroviral medication. The patient reports a 20-pack-year smoking history but no alcohol or recreational drug use. A review of systems is significant for a 6 kg (13.2 lb) unintentional weight loss over the past 2 months. The vital signs include: temperature 37.8\u2103 (100.0\u2109) and blood pressure 120/75 mm Hg. On physical examination, there are multiple non-tender swollen lymph nodes averaging 2 cm in diameter that is palpable in the anterior and posterior triangles of the neck bilaterally. Axillary and inguinal lymphadenopathy is present on the right side. A cardiopulmonary exam is unremarkable. The spleen size is 16 cm on percussion. Laboratory studies show the following:\nHemoglobin 9 g/dL\nMean corpuscular volume 88 \u03bcm3\nLeukocyte count 18,000/mm3\nPlatelet count 130,000/mm3\n    Serum creatinine 1.1 mg/dL\nSerum lactate dehydrogenase 1,000 U/L\nAn excisional biopsy of a superficial axillary lymph node on the right is performed and a histopathologic analysis confirms the most likely diagnosis. Which of the following is the next best diagnostic step in the workup of this patient?\n(A) Antinuclear antibody\n(B) Hepatitis C virus antibodies\n(C) JAK-2 mutation\n(D) Tartrate-resistant acid phosphatase (TRAP) test\n",
             "response": "The answer is (D) Tartrate-resistant acid phosphatase (TRAP) test.\n\nNote: The correct answer is (D) based on the given symptoms and medical history, which suggest a possible diagnosis of l",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "B",
             "context": []
         },
@@ -1697,7 +1697,7 @@
         {
             "question": "A 5-year-old female presents to the pediatrician for a routine office visit. The patient is in kindergarten and doing well in school. She is learning to read and is able to write her first name. Her teacher has no concerns. The patient\u2019s mother is concerned that the patient is a picky eater and often returns home from school with most of her packed lunch uneaten. The patient\u2019s past medical history is significant for moderate persistent asthma, which has required three separate week-long courses of prednisone over the last year and recently diagnosed myopia. The patient\u2019s mother is 5\u20197\u201d, and the patient\u2019s father is 5\u201910\u201d. The patient\u2019s weight and height are in the 55th and 5th percentile, respectively, which is consistent with her growth curve. On physical exam, the patient has a low hairline and a broad chest. Her lungs are clear with a mild expiratory wheeze. The patient\u2019s abdomen is soft, non-tender, and non-distended. She has Tanner stage I breast development and pubic hair.\n\nThis patient is most likely to have which of the following additional findings?\n(A) Absent Barr bodies on buccal smear\n(B) Elevated serum alkaline phosphatase level\n(C) Elevated serum TSH level\n(D) Mass in the sella turcica\n",
             "response": "The answer is (D) Mass in the sella turcica is not a likely finding based on the provided information.\n\nTherefore, the correct answer is:\n(A) Absent Barr bodies on buccal smear\n",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "A",
             "context": []
         },
@@ -1900,7 +1900,7 @@
         {
             "question": "A 22-year-old primigravida presents for a regular prenatal visit at 16 weeks gestation. She is concerned about the results of a dipstick test she performed at home, which showed 1+ glucose. She does not know  if her liquid consumption has increased, but she urinates more frequently than before. The course of her pregnancy has been unremarkable and she has no significant co-morbidities. The BMI is 25.6 kg/cm2 and she has gained 3 kg (6.72 lb) during the pregnancy. The blood pressure is 110/80 mm Hg, the heart rate is 82/min, the respiratory rate is 14/min, and the temperature is 36.6\u2103 (97.9\u2109). The lungs are clear to auscultation, the heart sounds are normal with no murmurs, and there is no abdominal or costovertebral angle tenderness. The laboratory tests show the following results:\nFasting glucose 97 mg/L\nALT 12 IU/L\nAST 14 IU/L\nTotal bilirubin 0.8 mg/dL(15 \u00b5mol/L)\nPlasma creatinine 0.7 mg/dL (61.9 \u00b5mol/L)\nWhich of the following tests are indicated to determine the cause of the abnormal dipstick test results?\n(A) HbA1c measurement\n(B) No tests required\n(C) Urinalysis\n(D) Oral glucose tolerance test\n",
             "response": "The answer is (D) Oral glucose tolerance test.\n\n(A) HbA1c measurement is not indicated as this test reflects average blood glucose levels over the past 2-3 months, and it is",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "B",
             "context": []
         },
@@ -2341,7 +2341,7 @@
         {
             "question": "A 51-year-old woman was recently diagnosed with type II diabetes. Due to the cumulative effects of diabetes, various health screenings and vaccinations are routinely recommended. Which of the following vaccinations or screening measures are recommended in patients with diabetes?\n(A) Urinalysis every 6 months\n(B) Comprehensive foot exam every year\n(C) Weekly foot inspections by patient or family member\n(D) Meningococcal vaccine\n",
             "response": "The answer is (B) Comprehensive foot exam every year.\n\n(A) Urinalysis every 6 months is not recommended specifically for patients with diabetes, although regular urinalysis is still important for monitoring kidney function.",
-            "response_idx": "F",
+            "response_idx": "B",
             "answer_idx": "B",
             "context": []
         },
@@ -2383,7 +2383,7 @@
         {
             "question": "A 67-year-old man is brought to the physician because of increasing forgetfulness, unsteadiness, and falls over the past year. He reports that these symptoms seem to worsen with each fall. Initially, he could not remember directions to his home but now cannot remember recent conversations or appointments he has made. He often repeats questions that he asked shortly before. He has long-standing hypertension, coronary artery disease, and hypercholesterolemia. Current medications include aspirin, carvedilol, enalapril, and atorvastatin. Examination shows a bruise over the left temple and an unsteady gait. On mental status examination, he is oriented to place and person only. Short-term memory is impaired; he can recall 0 out of 5 objects after 10 minutes. Long-term memory is intact. He has no delusions or hallucinations. Muscle strength is decreased in the left lower extremity. The Babinski sign is present on the left. A CT scan of the head is shown. Which of the following is the most appropriate next step in management?\n(A) Warfarin therapy\n(B) Vitamin E therapy\n(C) Tetrabenazine therapy\n(D) Cognitive training\n",
             "response": "The answer is (D) Cognitive training.\n\n(A) Warfarin therapy is not appropriate as there is no evidence of bleeding or thrombosis.\n(B) Vitamin E therapy is not appropriate as there is",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "D",
             "context": []
         },
@@ -2467,7 +2467,7 @@
         {
             "question": "Five days after undergoing an emergency appendectomy under general inhalational anesthesia while on a trip to Haiti, a 43-year-old woman develops low-grade fever, vomiting, and abdominal pain. During the surgery, she received a transfusion of 1 unit of packed red blood cells. Three days after the surgery, she was stable enough to be transported back to the United States. She has no history of serious illness and takes no medications. Her temperature is 38.3\u00b0C (100.9\u00b0F), pulse is 80/min, and blood pressure is 138/76 mm Hg. Examination shows jaundice of the skin and conjunctivae. Abdominal examination shows moderate tenderness over the liver. The liver is palpated 2 to 3 cm below the right costal margin. Laboratory studies show:\nHemoglobin count 12.0 g/dL\nLeukocyte count 10,400 mm3\nSegmented neutrophils 55%\nBands 1%\nEosinophils 13%\nLymphocytes 28%\nMonocytes 3%\nPlatelet count 160,000 mm3\nSerum\nAlkaline phosphatase 102 U/L\nAspartate aminotransferase 760 U/L\nBilirubin\nTotal 3.8 mg/dL\nDirect 3.1 mg/dL\nAnti-HAV IgG positive\nAnti-HAV IgM negative\nAnti-HBs positive\nHBsAg negative\nAnti-HCV antibodies negative\nAbdominal ultrasonography shows an enlarged liver. A biopsy of the liver shows massive centrilobular necrosis. Which of the following is the most likely underlying cause of this patient's condition?\"\n(A) Adverse effect of anesthetic\n(B) Gram negative bacteria in the bloodstream\n(C) Acalculous inflammation of the gallbladder\n(D) Excessive lysis of red blood cells\n",
             "response": "The answer is (D) Excessive lysis of red blood cells.\n\n(A) Adverse effect of anesthetic: This is not a likely cause as the symptoms developed five days after the surgery and the patient had a stable",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "A",
             "context": []
         },
@@ -2782,7 +2782,7 @@
         {
             "question": "An otherwise healthy 15-year-old boy presents to the emergency department with extreme fatigue and shortness of breath. His temperature is 36.5\u00b0C (97.7\u00b0F), the blood pressure is 100/60 mm Hg and the pulse is 100/min. Past medical history is noncontributory and he takes no medication. His father and aunt both suffer from mild anemia. On examination, he is very pale and his spleen is enlarged. His hemoglobin is 5 g/dL and platelet count is slightly reduced. His peripheral blood smear is shown in the picture. Over the next 2 weeks, the patient recovers, and his hemoglobin is 11 g/dL. Which of the following best represents the pattern of inheritance of this patient underlying disorder?\n(A) Autosomal dominant\n(B) X-linked recessive\n(C) X-linked dominant\n(D) Multifactorial\n",
             "response": "The answer is (D) Multifactorial is not a pattern of inheritance. The correct answer is (B) X-linked recessive, as the patient's symptoms and test results suggest hemolytic anemia,",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "A",
             "context": []
         },
@@ -3202,7 +3202,7 @@
         {
             "question": "A 59-year-old man is brought to the emergency department with a history of black, tarry stools but denies vomiting of blood or abdominal pain. His family has noticed progressive confusion. History is significant for liver cirrhosis and alcoholism. His heart rate is 112/min, temperature is 37.1\u00b0C (98.7\u00b0F), and blood pressure is 110/70 mm Hg. On examination, he is jaundiced, lethargic, is oriented to person and place but not date, and has moderate ascites. Neurological examination reveals asterixis, and his stool is guaiac-positive. Liver function test are shown below:\nTotal albumin 2 g/dL\nProthrombin time 9 seconds\nTotal bilirubin 5 mg/dL\nAlanine aminotransferase (ALT) 100 U/L\nAspartate aminotransferase (AST) 220 U/L\nWhich of the following is a feature of this patient condition?\n(A) Ammonia level is the best initial test to confirm the diagnosis\n(B) It is a diagnosis of exclusion\n(C) It only occurs in patients with cirrhosis\n(D) Electroencephalography (EEG) usually shows focal localising abnormality\n",
             "response": "The answer is (C) It only occurs in patients with cirrhosis.\n\nNote: The other options are incorrect because:\n\n(A) While ammonia level can be elevated in hepatic encephalopath",
-            "response_idx": "F",
+            "response_idx": "C",
             "answer_idx": "B",
             "context": []
         },
@@ -3545,7 +3545,7 @@
         {
             "question": "A 72-year-old woman presents to the emergency department with altered mental status. 90 minutes ago, the patient was found by a neighbor unarousable on the couch with multiple empty bottles of medication on the floor next to her. Social history is significant for alcohol abuse. Physical examination reveals an awake female with a fluctuating level of consciousness, not oriented to time or place. No focal neurologic deficits. Which of the following additional findings would most likely be present in this patient?\n(A) Hallucinations\n(B) Irreversibility\n(C) Multi-infarct dementia\n(D) Normal vital signs\n",
             "response": "The answer is (B) Irreversibility. (A), (C), and (D) are not additional findings, but rather descriptions or possible diagnoses. Irreversibility suggests that the altered mental status may not be reversible,",
-            "response_idx": "F",
+            "response_idx": "B",
             "answer_idx": "A",
             "context": []
         },
@@ -3580,7 +3580,7 @@
         {
             "question": "A 67-year-old man comes to the physician for a routine medical check-up prior to a scheduled elective femoropopliteal bypass surgery of his left leg. He feels well but reports occasional episodes of weakness and numbness in his left hand. He has a history of peripheral arterial disease, type 2 diabetes mellitus, hypertension, hypercholesterolemia, and gout. The patient has smoked 1 pack of cigarettes daily for the past 50 years. He drinks 3 cans of beer daily. His current medications include aspirin, metformin, enalapril, simvastatin, and febuxostat. His temperature is 37.3\u00b0C (99.1\u00b0F), pulse is 86/min, and blood pressure is 122/76 mm Hg. The lungs are clear to auscultation. Cardiac examination shows no murmurs, rubs, or gallops. Auscultation of the right side of the neck shows a bruit. There is a right-sided reducible inguinal hernia. Neurological examination shows no abnormalities. A complete blood count and serum concentrations of electrolytes, creatinine, and glucose are within the reference ranges. An electrocardiogram shows signs of mild left ventricular hypertrophy. An x-ray of the chest shows no abnormalities. Which of the following is the most appropriate next step in management?\n(A) Ultrasonography of the neck\n(B) Echocardiography\n(C) Warfarin therapy\n(D) CT angiography of the head\n",
             "response": "The answer is (C) Warfarin therapy is not the most appropriate next step in management.\n\nThe answer is (B) Echocardiography.",
-            "response_idx": "F",
+            "response_idx": "C",
             "answer_idx": "A",
             "context": []
         },
@@ -4336,7 +4336,7 @@
         {
             "question": "Eight weeks after starting a new weight-loss medication, a 43-year-old woman with obesity comes to the physician because of greasy diarrhea, excessive belching, and flatulence. She also complains of progressively worsening night-time vision. She has had no fever, chills, or vomiting. Physical examination shows dry, scaly skin on her extremities and face. Which of the following is the most likely mechanism of action of the drug she is taking?\n(A) Stimulation of monoamine neurotransmitter release\n(B) Inhibition of serotonin reuptake\n(C) Stimulation of norepinephrine release\n(D) Inhibition of lipase\n",
             "response": "The answer is (D) Inhibition of lipase.\n\nNote: The correct answer is (D) because the symptoms of greasy diarrhea, excessive belching, and flatulence suggest malabsorption of f",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "D",
             "context": []
         },
@@ -4518,7 +4518,7 @@
         {
             "question": "A 45-year-old woman comes to the physician with a lump on her throat that has steadily increased in size over the past 5 months. She does not have difficulties swallowing, dyspnea, or changes in voice. Examination shows a 3-cm, hard swelling on the left side of her neck that moves with swallowing. There is no cervical or axillary lymphadenopathy. The remainder of the examination shows no abnormalities. Thyroid functions tests are within the reference range. Ultrasound of the neck shows an irregular, hypoechogenic mass in the left lobe of the thyroid. A fine-needle aspiration biopsy is inconclusive. The surgeon and patient agree that the most appropriate next step is a diagnostic lobectomy and isthmectomy. Surgery shows a 3.5-cm gray tan thyroid tumor with invasion of surrounding blood vessels, including the veins. The specimen is sent for histopathological examination. Which of the following is most likely to be seen on microscopic examination of the mass?\n(A) Undifferentiated giant cells\n(B) Capsular invasion\n(C) Infiltration of atypical lymphoid tissue\n(D) Orphan Annie nuclei\n\"\n",
             "response": "The answer is (B) Capsular invasion.\n\n\"The answer is (B) capsular invasion.\"\n\nNote: The other options (A, C, and D) are not relevant to the pathology of thyroid cancer",
-            "response_idx": "F",
+            "response_idx": "B",
             "answer_idx": "B",
             "context": []
         },
@@ -4574,7 +4574,7 @@
         {
             "question": "A 45-year-old woman is brought to the emergency department by her husband due to upper abdominal pain, nausea, and vomiting for the past couple of hours. She had similar episodes in the past, which were often precipitated by food but resolved spontaneously. Her temperature is 38.3\u00b0C (101.0\u00b0F), heart rate is 96/min, blood pressure is 118/76 mm Hg, and respiratory rate is 16/min. Physical examination reveals tenderness over the right upper quadrant that is severe enough to make her stop breathing when deeply palpated in the area. Lab results show:\nLeukocyte count 18,000/mm3 with 79% neutrophils\nAspartate aminotransferase 67 IU/L\nAlanine aminotransferase 71 IU/L\nSerum amylase 46 U/L\nSerum Lipase 55 U/L\nSerum calcium 8.9 mg/dL\nUltrasonography of the abdomen is shown below. During the ultrasound exam, the patient complains of tenderness when the probe presses down on her right upper quadrant. Which of the following is the most likely cause of her pain?\n(A) Acute calculous cholecystitis\n(B) Acute acalculous cholecystitis\n(C) Acute pancreatitis\n(D) Ascending cholangitis\n",
             "response": "The answer is (C) Acute pancreatitis.\n\n(A) Acute calculous cholecystitis: This condition is characterized by the presence of a gallstone in the gallbladder, which can cause infl",
-            "response_idx": "F",
+            "response_idx": "C",
             "answer_idx": "A",
             "context": []
         },
@@ -5148,14 +5148,14 @@
         {
             "question": "A 68-year-old man presents to the emergency department with confusion. The patient lives in a nursing home and has Alzheimer dementia at baseline. His nurse noticed that he was more confused than usual and was somnolent for the past 12 hours. The patient\u2019s nurse also noticed that he was soiling his diapers more frequently with copious amounts of urine. The patient has lost 15 pounds since his last physician appointment 3 weeks ago. Laboratory values are ordered as seen below.\n\nSerum:\nNa+: 139 mEq/L\nCl-: 100 mEq/L\nK+: 4.3 mEq/L\nHCO3-: 25 mEq/L\nBUN: 20 mg/dL\nGlucose: 99 mg/dL\nCreatinine: 1.1 mg/dL\nCa2+: 12.2 mg/dL\nPTH: 8 pg/mL\n\nThe patient is referred to another physician for a more thorough workup including laboratory work and CT imaging. Which of the following is the best long-term prophylaxis for the cause of this patient\u2019s acute symptoms?\n(A) Alendronate\n(B) Calcitonin\n(C) IV fluids\n(D) Teriparatide\n",
             "response": "The answer is (C) IV fluids is not a long-term prophylaxis for the cause of this patient's acute symptoms.\n\n(A) Alendronate is a bisphosphonate medication used to",
-            "response_idx": "F",
+            "response_idx": "C",
             "answer_idx": "A",
             "context": []
         },
         {
             "question": "A 68-year-old woman is referred to the outpatient psychiatry clinic from the medical clinic. The patient is being treated for urge incontinence but is being referred for psychiatric evaluation to help with some of her old avoidance behavior. For the 3 months that she had her urinary symptoms, she avoided places like long lines and long train rides. Even after being successfully treated for her urinary condition, she continues to show restricted social interaction. Which of the following is a true statement regarding the patient's condition?\n(A) She fears not being able to escape similar situations.\n(B) Her symptoms need to last for at least 1 month.\n(C) She requires only one fear or avoidance situation to meet criteria for this condition.\n(D) Patients may have accompanying social phobia.\n",
             "response": "The answer is (D) Patients may have accompanying social phobia.\n\n(A) She fears not being able to escape similar situations is a true statement regarding the patient's condition, but it is not the correct answer as it",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "A",
             "context": []
         },
@@ -5512,7 +5512,7 @@
         {
             "question": "A 52-year-old man with Crohn disease comes to the physician because of a 1-week history of dysuria and urinary urgency. He had been treated for urinary tract infections twice in the past 6 months. He is currently taking infliximab. Cystoscopy shows pearl-like plaques on the bladder wall. Biopsy of these lesions shows a focal layer of stratified squamous epithelium with hyperkeratosis. If the patient's bladder finding is caused by a vitamin deficiency, which of the following features is also most likely to be seen?\n(A) Carpopedal spasm\n(B) Photodermatitis\n(C) Night blindness\n(D) Intracranial hypertension\n",
             "response": "The answer is (C) Night blindness.\n\nNote: In this case, the patient's bladder finding is not caused by a vitamin deficiency. The correct answer is (D) Intracranial hypert",
-            "response_idx": "F",
+            "response_idx": "C",
             "answer_idx": "C",
             "context": []
         },
@@ -5547,7 +5547,7 @@
         {
             "question": "A 46-year-old woman presents with difficulty initiating sleep, as well as frequent nighttime awakenings. She reports making multiple mistakes at her office job, has an inability to concentrate, and feels sleepy throughout the day. She is worried that her sleeping troubles will cause her to get fired. Which of the following would best treat this patient\u2019s insomnia pharmacologically?\n(A) Chlordiazepoxide\n(B) Triazolam\n(C) Diazepam\n(D) Modafinil\n",
             "response": "The answer is (D) Modafinil is the best pharmacological treatment for this patient's insomnia. (A), (B), and (C) are sedative-hypnotic medications that can impair cognitive",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "B",
             "context": []
         },
@@ -5995,7 +5995,7 @@
         {
             "question": "A 45-year-old man presents to his primary care provider for two weeks of low-grade fever and sore throat. Upon further questioning, the patient is found to have unprotected sex with both men and women with 3-5 partners per month. On workup, he is found to have an HIV viral load of 15,000 copies/mL with a CD4+ of 170 cells/mm^3. He is started on medical therapy. What should be included in his medication regimen?\n(A) Azithromycin\n(B) Fluconazole\n(C) Folinic acid\n(D) Tetrahydrofolic acid\n",
             "response": "The answer is (D) Tetrahydrofolic acid is not required in the medication regimen for this patient. The correct answer for this question is:\n\n(C) Folinic acid should be included in his medication regimen",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "C",
             "context": []
         },
@@ -6009,7 +6009,7 @@
         {
             "question": "A 27-year-old female presents to her physician with a palpable thyroid nodule. Iodine uptake testing shows that the nodule has decreased iodine uptake compared with the rest of the thyroid gland. A fine-needle aspiration is performed and the physician calls telling the patient that she has a neoplasm of the thyroid. Which of the following diagnoses is the most likely?\n(A) Papillary carcinoma\n(B) Medullary carcinoma\n(C) Follicular carcinoma\n(D) Anaplastic carcinoma\n",
             "response": "The answer is (C) Follicular carcinoma is less likely than the other options due to its typical increased iodine uptake. Therefore, the most likely diagnosis is (A) Papillary carcinoma, as it",
-            "response_idx": "F",
+            "response_idx": "C",
             "answer_idx": "A",
             "context": []
         },
@@ -6548,7 +6548,7 @@
         {
             "question": "A 29-year-old female presents to the clinic for a regular check-up. She has no specific complaints. Vital signs include: blood pressure is 130/80 mm Hg, heart rate is 76/min, respiratory rate is 15/min, and temperature is 36.8\u00b0C (98.2\u00b0F). Her physical examination is within normal limits. The woman\u2019s complete blood count shows an absolute increase in the cells shown in the first image. Which of the following is true regarding these cells?\n(A) These cells transform to macrophages when they migrate to peripheral tissues.\n(B) These cells express CD25 on their surfaces.\n(C) These cells normally constitute 25\u201340% of total leucocyte count.\n(D) These cells have lymphoid origin.\n",
             "response": "The answer is (D) These cells have lymphoid origin. (A), (B), and (C) are incorrect.\n\nNote: The correct answer is D because the cells shown in the image are lymphocytes",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "A",
             "context": []
         },
@@ -6611,7 +6611,7 @@
         {
             "question": "Two days after admission to the hospital for treatment of acute myelogenous leukemia, a 35-year-old man develops nausea, vomiting, fatigue, and muscle cramps. He has a history of diet-controlled type 2 diabetes mellitus. He has smoked one-half pack of cigarettes daily for 15 years and reports occasionally using marijuana. His temperature is 38.7\u00b0C (101.1\u00b0F), pulse is 85/min, respirations are 25/min, and blood pressure is 110/65 mm Hg. Laboratory studies show:\nLeukocyte count 16,000/mm3\nHemoglobin 13.4 g/dL\nPlatelet count 180,000/mm3\nSerum\nNa+ 134 mEq/L\nK+ 5.9 mEq/L\nCl- 101 mEq/L\nHCO3- 24 mEq/L\nUrea nitrogen 27 mg/dL\nUric acid 11.2 mg/dL\nCreatinine 2.2 mg/dL\nGlucose 134 mg/dL\nCa2+ 6.8 mg/dL\nMg2+ 1.8 g/dL\nPhosphorus 8.9 mg/dL\nWhich of the following would have been most effective in preventing this patient's current symptoms?\"\n(A) Urine alkalinization\n(B) Rasburicase\n(C) Allopurinol\n(D) Intravenous hydration\n",
             "response": "The answer is (C) Allopurinol would have been most effective in preventing this patient's current symptoms.\n\n(A) Urine alkalinization would not have prevented the patient's current symptoms as his symptoms are",
-            "response_idx": "F",
+            "response_idx": "C",
             "answer_idx": "D",
             "context": []
         },
@@ -6674,7 +6674,7 @@
         {
             "question": "A 70-year-old man presents to the Emergency Department after 3 days of shortness of breath, orthopnea, and lower limb edema. His personal history is significant for a myocardial infarction 6 years ago that required revascularization and hypertension. His medication consists of simvastatin and lisinopril.  In the ED, he has a blood pressure of 100/80 mm Hg, a pulse of 88/min, a respiratory rate of 28/min, and a temperature of 36.5\u00b0C (97.7\u00b0F). On physical examination, he has jugular vein distention, displaced point of maximal impulse (PMI), an S4-gallop, a holosystolic murmur, and 2+ pitting edema up to the mid calf.  He is started on furosemide, carvedilol, and oxygen therapy. After 6-hours of continued therapy, his blood pressure remains low, and his serum creatinine is found to be 1.9 mg/dL. Which of the following test would be more useful to differentiate between prerenal and intrinsic kidney disease?\n(A) Sulfosalicylic acid test\n(B) Urine sodium content\n(C) Fractional excretion of urea (FEUrea)\n(D) Nitrates in urine\n",
             "response": "The answer is (B) Urine sodium content.\n\n(A) Sulfosalicylic acid test is used to differentiate between glycosuria due to diabetes mellitus and glycosuria due",
-            "response_idx": "F",
+            "response_idx": "B",
             "answer_idx": "C",
             "context": []
         },
@@ -7024,7 +7024,7 @@
         {
             "question": "A 45-year-old woman comes to the physician because of fatigue, abdominal cramps, watery diarrhea, and a weight loss of 4 kg (8.8 lb) over the last 4 months. She has recently avoided drinking alcohol and eating spicy food because it worsens her diarrhea and causes episodes of heart palpitations and reddening of the face and neck. She takes lisinopril for hypertension. Her temperature is 36.5\u00b0C (97.7\u00b0F), pulse is 98/min, and blood pressure is 149/90 mm Hg. The abdomen is soft, and there is mild tenderness to palpation with no guarding or rebound. Laboratory studies show an increased urine 5-hydroxyindoleacetic acid concentration. Further evaluation of this patient will most likely show which of the following?\n(A) Achlorhydria\n(B) Adrenal medullary mass\n(C) Multiple peptic ulcers\n(D) Pulmonic valve stenosis\n",
             "response": "The answer is (D) Pulmonic valve stenosis. (This is incorrect as the symptoms and signs presented do not match with pulmonic valve stenosis. The correct answer is (A) Achlorhydria",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "D",
             "context": []
         },
@@ -7136,7 +7136,7 @@
         {
             "question": "A 40-year-old obese man presents to his primary care provider with a history of excessive daytime somnolence and easy fatigability. Upon further questioning, it is found that although his sleeping hours are adequate, he does not feel refreshed in the morning. His wife complains that he snores loudly all night. After ruling out common medical disorders and possible drug abuse, he is advised an overnight polysomnogram that records 12 episodes of apnea and 30 episodes of hypopnea during a 7-hour sleep. Which of the following statements best describes this patient\u2019s condition?\n(A) This patient's apnea-hypopnea index (AHI) is more than 5.\n(B) Episodes of apnea and hypopnea are more likely to occur during deeper stages of non-rapid eye movement sleep.\n(C) Mouth opening during sleep breaks the seal between the tongue and the teeth and relieves airway obstruction.\n(D) Gynoid obesity is associated with apnea and hypopnea more frequently as compared to android obesity.\n",
             "response": "The answer is (A) This patient's apnea-hypopnea index (AHI) is more than 5.\n\n(B) Episodes of apnea and hypopnea are more likely to occur during deeper",
-            "response_idx": "F",
+            "response_idx": "A",
             "answer_idx": "A",
             "context": []
         },
@@ -7325,7 +7325,7 @@
         {
             "question": "An investigator is studying the frequency of polycythemia in a population of a remote, mountainous region. A representative sample of 100 men shows a normal distribution of hemoglobin concentration with a mean concentration of 17 g/dL and a standard error of 0.1 g/dL. Which of the following best represents the probability that a subject will have a hemoglobin concentration greater than 18 g/dL?\n(A) 30%\n(B) 15%\n(C) 95%\n(D) 99%\n",
             "response": "The answer is (C) 95% does not represent the probability that a subject will have a hemoglobin concentration greater than 18 g/dL. The correct answer is (D) 99%.\n\n",
-            "response_idx": "F",
+            "response_idx": "C",
             "answer_idx": "B",
             "context": []
         },
@@ -7983,7 +7983,7 @@
         {
             "question": "A 5-year-old boy is brought to his pediatrician due to sore throat and fever. He was in his usual state of health until 3 days ago when he began to complain of a sore throat as well as general malaise. The patient's past medical history reveals recurrent upper respiratory infections but no skin or soft tissue infections. The child had cardiac surgery as an infant but has otherwise been healthy. On presentation, his temperature is 100\u00b0F (37.8 \u00b0C), blood pressure is 115/72 mmHg, pulse is 65/min, and respirations are 22/min. Physical exam shows white plaques on the tongue and mouth. A scraping of this material reveals a characteristic morphology after being treated with KOH. Serum protein electrophoresis shows a normal distribution of bands from this patient. Which of the following findings would most likely be found in this patient?\n(A) Delayed separation of the umbilical cord\n(B) Hypoparathyroidism\n(C) Partial albinism\n(D) Thrombocytopenic purpura\n",
             "response": "The answer is (C) Partial albinism.\n\n(A) Delayed separation of the umbilical cord is not related to the presented symptoms and medical history.\n(B) Hypoparathyroidism",
-            "response_idx": "F",
+            "response_idx": "C",
             "answer_idx": "B",
             "context": []
         },
@@ -8830,7 +8830,7 @@
         {
             "question": "A 55-year-old woman with no significant past medical history presents to her primary care doctor with fever, fatigue, and bleeding gums for the past 3 days. She denies any sick contacts. Her temperature is 101\u00b0F (38.3\u00b0C), blood pressure is 110/70 mmHg, pulse is 96/min, and respirations are 15/min. Physical exam reveals several oral mucosal petechiae, bleeding gums, bilateral submandibular lymphadenopathy, and hepatosplenomegaly. Initial laboratory workup shows the following:\n\nLeukocyte count and differential:\nLeukocyte count: 6,600/mm^3\nSegmented neutrophils: 60%\nBands: 20%\nEosinophils: 9%\nBasophils: 1%\nLymphocytes: 0%\nMonocytes: 10%\nPlatelet count: 99,000/mm^3\n\nHemoglobin: 8.1 g/dL\nHematocrit: 25%\n\nProthrombin time: 25 sec\nPartial thromboplastin time: 50 sec\nInternational normalized ratio: 1.6\nD-dimer: 2,000 \u00b5g/mL\nFibrinogen: 99 mg/dL\n\nA bone marrow biopsy demonstrates 34% myeloblasts with Auer rods that are myeloperoxidase positive. What is best treatment option?\n(A) Ascorbic acid\n(B) Fresh frozen plasma\n(C) Retinoic acid\n(D) Zoledronic acid\n",
             "response": "The answer is (D) Zoledronic acid is not the best treatment option for this patient.\n\n(A) Ascorbic acid is not the best treatment option for this patient as she does not have a vitamin C deficiency",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "C",
             "context": []
         },
@@ -8893,7 +8893,7 @@
         {
             "question": "A 21-year-old college student comes to the physician because of daytime fatigue for 2 months. He has problems getting to sleep at night and frequently falls asleep during class. Recently he has started skipping classes altogether. He goes to bed between 11 p.m. and 1 a.m. but cannot fall asleep for 2\u20133 hours. When he wakes up at 8:30 a.m., he feels extremely drowsy, and he tries to overcome his fatigue by drinking 2\u20133 cups of coffee a day. He naps at various times during the afternoon, often for more than an hour. He stopped watching videos on his smartphone at night because of suggestions from his peers. He states that he has tried over-the-counter melatonin pills and exercising at 8 p.m. without success. He has no history of serious illness. He does not smoke. He drinks three to five beers on weekends. Physical examination shows no abnormalities. Which of the following is the most appropriate recommendation for this patient?\n(A) Trial of diphenhydramine\n(B) Stop evening exercise\n(C) Alcoholic beverage prior to bedtime\n(D) Scheduled afternoon naps\n",
             "response": "The answer is (D) Scheduled afternoon naps are not the most appropriate recommendation for this patient.\n\n(A) Trial of diphenhydramine is not the most appropriate recommendation for this patient as it may cause drowsiness",
-            "response_idx": "F",
+            "response_idx": "D",
             "answer_idx": "B",
             "context": []
         },
@@ -8913,6 +8913,6 @@
         }
     ],
     "tot_questions": 1273,
-    "right_answers": 625,
-    "accuracy": 0.49096622152395913
+    "right_answers": 634,
+    "accuracy": 0.49803613511390415
 }
