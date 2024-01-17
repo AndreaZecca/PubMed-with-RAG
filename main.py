@@ -37,9 +37,11 @@ global_query = None
 global_debug = False
 global_rerank = False
 global_only_question = False
+global_rag = True
 
-embedder = HuggingFaceEmbeddings(model_name="neuml/pubmedbert-base-embeddings")
-reranker_model = FlagReranker('BAAI/bge-reranker-large', use_fp16=True) # use_fp16 speeds up computation with a slight performance degradation
+
+embedder = None 
+reranker_model = None
 
 def format_query(query):
     return query.split('(A)')[0]
@@ -68,27 +70,29 @@ def process_docs(docs):
         global_context = [d.page_content for d in docs]
     return format_docs(docs)
 
-def test_dataset(dataset, llm, model):
-    global global_debug, global_rerank, global_only_question, global_query
+def test_dataset(dataset, llm, model, rag):
+    global global_debug, global_rerank, global_only_question, global_query, embedder, reranker_model
     collection_name = 'medqa' if dataset in ['medqa_opt4', 'medqa_opt5'] else 'medmcqa'
 
-    with open(get_template(model, dataset)) as f:
+    with open(get_template(model, dataset, rag)) as f:
         usr_template = f.read()
 
-    prompt = ChatPromptTemplate.from_template(usr_template)
+    print(f"Template: {usr_template}")
 
-    vector_db = Milvus(
-        embedder,
-        connection_args={"host": "127.0.0.1", "port": "19530"},
-        collection_name=collection_name,
-    )
-    
-    retriever = vector_db.as_retriever(search_kwargs={"k": RETRIEVE_WITH_RERANK if global_rerank else KEEP_TOP})
-    
-    if global_only_question:
-        base_chain = {"context": format_query | retriever | process_docs, "question": RunnablePassthrough()}
+    prompt = ChatPromptTemplate.from_template(usr_template)
+    if rag:
+        vector_db = Milvus(
+            embedder,
+            connection_args={"host": "127.0.0.1", "port": "19530"},
+            collection_name=collection_name,
+        )
+        retriever = vector_db.as_retriever(search_kwargs={"k": RETRIEVE_WITH_RERANK if global_rerank else KEEP_TOP})
+        if global_only_question:
+            base_chain = {"context": format_query | retriever | process_docs, "question": RunnablePassthrough()}
+        else:
+            base_chain = {"context": retriever | process_docs, "question": RunnablePassthrough()}
     else:
-        base_chain = {"context": retriever | process_docs, "question": RunnablePassthrough()}
+        base_chain = {"question": RunnablePassthrough()}
 
     chain = (
         base_chain
@@ -129,17 +133,18 @@ def test_dataset(dataset, llm, model):
         "right_answers": correct,
         "accuracy": correct / total_questions
     }
-    if global_only_question:
-        result_path = get_results_path(model, dataset, optional_path='_only_question')
-    else:
-        result_path = get_results_path(model, dataset)
+    result_path = get_results_path(model, dataset, optional_path='_only_question' if global_only_question else '')
         
-    if global_debug:
-        result_path = result_path.replace('.json', '_debug.json')
+    if not rag:
+        result_path = result_path.replace('.json', '_noRAG.json')
     
     if global_rerank:
         result_path = result_path.replace('.json', '_rerank.json')
     
+    if global_debug:
+        result_path = result_path.replace('.json', '_debug.json')
+
+    print(f"Saving results to {result_path}")
     with open(result_path, "w") as f:
         json.dump(output_json, f, indent=4)   
     
@@ -152,14 +157,21 @@ def test_dataset(dataset, llm, model):
 @click.option("--rerank", help="Whether to use reranking", required=False, default=False)
 @click.option("--debug", help="Debug mode", required=False, default=False)
 @click.option("--only_question", help="Whetere to remove the answers from the query passed to the retriever", required=False, default=False)
-def main(model, datasets, rerank, debug, only_question):
-    global global_debug, global_rerank, global_only_question
+@click.option("--rag", help="Whether to use RAG", required=False, default=True)
+def main(model, datasets, rerank, debug, only_question, rag):
+    global global_debug, global_rerank, global_only_question, global_rag, embedder, reranker_model
     global_debug = debug
     global_rerank = rerank
     global_only_question = only_question
-
     datasets = datasets.split(',')
     model_kwargs={"torch_dtype": "auto", "temperature": 1e-16, "do_sample": True, 'pad_token_id': 0}
+
+    if rag:
+        global_rerank = False
+        global_only_question = False
+        embedder = HuggingFaceEmbeddings(model_name="neuml/pubmedbert-base-embeddings")
+        reranker_model = FlagReranker('BAAI/bge-reranker-large', use_fp16=True) # use_fp16 speeds up computation with a slight performance degradation
+
     llm = HuggingFacePipeline.from_model_id(
             model_id=model,
             device=0,
@@ -169,7 +181,7 @@ def main(model, datasets, rerank, debug, only_question):
     )
     for dataset in datasets:
         print(f'Testing model {model} with dataset {dataset}')
-        accuracy = test_dataset(dataset, llm, model)
+        accuracy = test_dataset(dataset, llm, model, rag)
         print(f'Accuracy: {accuracy:.2f}%')
         print()
 

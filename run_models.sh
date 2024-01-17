@@ -8,9 +8,10 @@ declare -a datasets=(
     'medqa_opt5'
     'medmcqa_opt4'
 )
+debug=true
 rerank=true
-debug=false
 only_question=false
+rag=false
 
 datasets_string="${datasets[0]}"
 for dataset in "${datasets[@]:1}"; do
@@ -18,5 +19,5 @@ for dataset in "${datasets[@]:1}"; do
 done
 
 for model in "${models[@]}"; do
-    python3 main.py --model $model --datasets $datasets_string --rerank $rerank --debug $debug --only_question $only_question
+    python3 main.py --model $model --datasets $datasets_string --rerank $rerank --debug $debug --only_question $only_question --rag $rag
 done
