@@ -9,10 +9,10 @@ declare -a datasets=(
     #'medmcqa_opt4'
     'mmlu_opt4'
 )
-debug=true
-rerank=false
+debug=false
+rerank=true
 only_question=false
-rag=false
+rag=true
 
 datasets_string="${datasets[0]}"
 for dataset in "${datasets[@]:1}"; do

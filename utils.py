@@ -29,5 +29,11 @@ def get_template(model_name, dataset_name, rag):
         dataset_name_value = dataset_name_value.replace('.txt', '_noRAG.txt')
     return model_info.format(model_name=model_name_value, dataset_name=dataset_name_value)
 
-def get_results_path(model_name, dataset_name, optional_path=''):
-    return results_info.format(model_name=model_path_dict[model_name] + optional_path, dataset_name=results_path_dict[dataset_name])
+def get_results_path(model_name, dataset_name, global_only_question):
+    model_name_value = model_path_dict[model_name]
+    dataset_name_value=results_path_dict[dataset_name]
+
+    if global_only_question:
+        return results_info.replace('results/','results/other_results/').format(model_name=model_name_value + '_only_question', dataset_name=dataset_name_value)
+    else:
+        return results_info.format(model_name=model_name_value, dataset_name=dataset_name_value)

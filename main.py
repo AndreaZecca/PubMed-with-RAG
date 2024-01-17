@@ -131,7 +131,7 @@ def test_dataset(dataset, llm, model, rag):
         "right_answers": correct,
         "accuracy": correct / total_questions
     }
-    result_path = get_results_path(model, dataset, optional_path='_only_question' if global_only_question else '')
+    result_path = get_results_path(model, dataset, global_only_question)
         
     if not rag:
         result_path = result_path.replace('.json', '_noRAG.json')
@@ -164,10 +164,10 @@ def main(model, datasets, rerank, debug, only_question, rag):
     model_kwargs={"torch_dtype": "auto", "temperature": 1e-16, "do_sample": True, 'pad_token_id': 0}
 
     if rag:
-        global_rerank = False
-        global_only_question = False
         embedder = HuggingFaceEmbeddings(model_name="neuml/pubmedbert-base-embeddings")
         reranker_model = FlagReranker('BAAI/bge-reranker-large', use_fp16=True) # use_fp16 speeds up computation with a slight performance degradation
+    else:
+        global_rerank = False
 
     llm = HuggingFacePipeline.from_model_id(
             model_id=model,
