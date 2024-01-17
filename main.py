@@ -41,30 +41,32 @@ global_only_question = False
 embedder = HuggingFaceEmbeddings(model_name="neuml/pubmedbert-base-embeddings")
 reranker_model = FlagReranker('BAAI/bge-reranker-large', use_fp16=True) # use_fp16 speeds up computation with a slight performance degradation
 
+def format_query(query):
+    return query.split('(A)')[0]
+
 def format_docs(docs):
-    global global_context
-    global_context = [d.page_content for d in docs]
     return "\n\n".join([d.page_content for d in docs])
 
 def rerank_docs(docs):
-    global global_query
-
+    global global_query, global_context, global_only_question
+    if global_only_question:
+        global_query = format_query(global_query)
     # rerank docs
     pairs = [list((global_query, d.page_content)) for d in docs]
     scores = reranker_model.compute_score(pairs)
     permutation = np.argsort(scores)[::-1]
     docs = [docs[i] for i in permutation]
+    global_context = [d.page_content for d in docs]
     docs = docs[:KEEP_TOP]
     return docs
 
 def process_docs(docs):
-    global global_rerank
+    global global_rerank, global_context
     if global_rerank:
         docs = rerank_docs(docs)
+    else:
+        global_context = [d.page_content for d in docs]
     return format_docs(docs)
-
-def format_query(query):
-    return query.split('(A)')[0]
 
 def test_dataset(dataset, llm, model):
     global global_debug, global_rerank, global_only_question, global_query
@@ -81,7 +83,6 @@ def test_dataset(dataset, llm, model):
         collection_name=collection_name,
     )
     
-    # Retrieve and generate using the relevant snippets of the blog.
     retriever = vector_db.as_retriever(search_kwargs={"k": RETRIEVE_WITH_RERANK if global_rerank else KEEP_TOP})
     
     if global_only_question:
@@ -159,8 +160,6 @@ def main(model, datasets, rerank, debug, only_question):
 
     datasets = datasets.split(',')
     model_kwargs={"torch_dtype": "auto", "temperature": 1e-16, "do_sample": True, 'pad_token_id': 0}
-    # if 'mistral' in model:
-    #     model_kwargs['pad_token_id'] = 0   
     llm = HuggingFacePipeline.from_model_id(
             model_id=model,
             device=0,
