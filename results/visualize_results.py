@@ -5,7 +5,7 @@ from tabulate import tabulate
 results = {}
 
 for model_name in os.listdir('.'):
-    if model_name.startswith('.') or model_name.startswith('..') or model_name.endswith('.py'):
+    if model_name.startswith('.') or model_name.startswith('..') or model_name.endswith('.py') or 'only_question' in model_name:
         continue
     results[model_name] = {}
     for dataset_name in sorted(os.listdir(f'{model_name}/')):

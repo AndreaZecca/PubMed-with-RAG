@@ -7933,7 +7933,7 @@
         {
             "question": "A 23-year-old woman, gravida 2, para 1, at 20 weeks of gestation comes to the physician for a routine prenatal exam. Her last pregnancy was unremarkable and she gave birth to a healthy rhesus (RhD) positive girl. Her past medical history is notable for a blood transfusion after a car accident with a complex femur fracture about 3 years ago. Her temperature is 37.2\u00b0C (99\u00b0F), pulse is 92/min, and blood pressure is 138/82 mm Hg. Examination shows that the uterus is at the umbilicus. Ultrasound examination reveals normal fetal heart rate, movement, and anatomy. Routine prenatal labs show the following:\nBlood type A Rh-\nLeukocyte count 11,000/mm3\nHemoglobin 12.5 g/dL\nPlatelet count 345,000/mm3\nSerum\nAnti-D antibody screen Negative\nRubella IgM Negative\nRubella IgG Negative\nVaricella IgM Negative\nVaricella IgG Positive\nSTD panel Negative\nUrine\nProtein Trace\nCulture No growth\nCervical cytology Normal\nWhich of the following is the best next step in management of this patient?\"\n(A) Repeat antibody screening at 28 weeks. Administer anti-D immunoglobulin at 28 weeks and after delivery if the newborn is Rh(D) positive.\n(B) Repeat antibody screening at 28 weeks and administer anti-D immunoglobulin at 28 weeks. No further management is needed.\n(C) No further screening is needed. Administer anti-D immunoglobulin shortly after delivery\n(D) No further management is needed\n\"\n",
             "response": "The correct answer is (A) Repeat antibody screening at 28 weeks. Administer anti-D immunoglobulin at 28 weeks and after delivery if the newborn is Rh(D) positive.",
-            "response_idx": "F",
+            "response_idx": "A",
             "answer_idx": "A",
             "context": [
                 "A 23-year-old woman, gravida 2, Para 0-0-1-0, initially presented for antenatal care at 13 weeks pregnancy. Her MCV was 67 fentolitre, DiChlorophenol-IndolPhenol (DCIP) test was negative and hemoglobin electrophoresis was normal. Her husbands MCV was 67 fentolitre, and hemoglobin electrophoresis was normal. Cardiomegaly (an increased of the cardiothoracic ratio) was detected by ultrasonogram at 25 weeks of gestation. She and her husband were comprehensively counseled after an Hb Bart's was suspected. A cordocentesis was performed and the fetal blood was tested for hemoglobin electrophoresis. The result was later known and confirmed as Hb Bart's. The couple decided to terminate the pregnancy. The induced abortion was successful and the patient was discharged on the second day after the abortion. She was well at the 4-week follow-up.",
@@ -16551,6 +16551,6 @@
         }
     ],
     "tot_questions": 1273,
-    "right_answers": 456,
-    "accuracy": 0.3582089552238806
+    "right_answers": 457,
+    "accuracy": 0.35899450117831894
 }

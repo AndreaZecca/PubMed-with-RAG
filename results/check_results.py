@@ -81,6 +81,7 @@ for model_name in os.listdir('.'):
                     count = count + 1   
 
             new_accuracy = count / results['tot_questions']
-            results['accuracy'] = new_accuracy  
+            results['accuracy'] = new_accuracy
+            results['right_answers'] = count
         with open(f'./{model_name}/{results_name}', 'w') as f:
             json.dump(results, f, indent=4)         
