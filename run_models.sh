@@ -3,24 +3,20 @@ declare -a models=(
     'meta-llama/Llama-2-7b-chat-hf'
     'mistralai/Mistral-7B-Instruct-v0.1'
 )
-
-# declare a string variable 
 declare -a datasets=(
     'medqa_opt4'
     'medqa_opt5'
     'medmcqa_opt4'
 )
-
 rerank=true
+debug=false
+only_question=false
 
 datasets_string="${datasets[0]}"
-
-debug=false
-
 for dataset in "${datasets[@]:1}"; do
     datasets_string="$datasets_string,$dataset"
 done
 
 for model in "${models[@]}"; do
-    python3 main.py --model $model --datasets $datasets_string --rerank $rerank --debug $debug
+    python3 main.py --model $model --datasets $datasets_string --rerank $rerank --debug $debug --only_question $only_question
 done

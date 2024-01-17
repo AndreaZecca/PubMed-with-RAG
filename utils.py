@@ -23,5 +23,5 @@ results_path_dict = {
 def get_template(model_name, dataset_name):
     return model_info.format(model_name=model_path_dict[model_name], dataset_name=dataset_path_dict[dataset_name])
 
-def get_results_path(model_name, dataset_name):
-    return results_info.format(model_name=model_path_dict[model_name], dataset_name=results_path_dict[dataset_name])
+def get_results_path(model_name, dataset_name, optional_path=''):
+    return results_info.format(model_name=model_path_dict[model_name] + optional_path, dataset_name=results_path_dict[dataset_name])
