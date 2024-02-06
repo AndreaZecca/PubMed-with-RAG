@@ -1,8 +1,7 @@
-<s>[INST] 
-Make a choice based on the question and context. Take the following two questions as examples.
-The response must be always only one single line as the following one: 
-"The answer is (letter of the correct answer) correct option."
-Nothing more.
+[INST] <<SYS>>
+You are a medical expert. Your task is to answer questions related to medical exams based on a given context. Answer as concise as possible. Your answer must be always a string of one line starting with "The answer is", followed by your final choice. Nothing more.
+<</SYS>>
+Make a choice based on the context and question. Take the following two questions as examples.
 
 # Example 1
 ### Context:
@@ -28,13 +27,6 @@ A 3-month-old baby died suddenly at night while asleep. His mother noticed that 
 (C) Application of a device to maintain the sleeping position
 (D) Avoiding pacifier use during sleep
 
-### Answer: 
 The answer is (A) Placing the infant in a supine position on a firm mattress while sleeping.
 
-This is yor context information:
-{context}
-
-Help me with this question. Limitate your answer to only the correct choice without any premise. Do not init your answer with "Of course! i'm here to help".
-Intit your answer directly with "The correct answer is"
-{question}
-[/INST]
+Now, help me with this question. Remember to answer with just a string of one line starting with "The answer is" as shown by the previous examples.

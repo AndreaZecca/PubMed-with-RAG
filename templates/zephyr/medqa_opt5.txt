@@ -1,10 +1,8 @@
 <|system|>
-Make a choice based on the question and context. Take the following two questions as examples.
-The response must be always only one single line as the following one: 
-"The answer is (letter of the correct answer) correct option."
-Nothing more.
+You are a medical expert. Your task is to answer questions related to medical exams based on a given context by selecting the correct option. Return as output only the selected option.</s>
+<|user|>
+Select only one option. Don't explain your choice.
 
-# Example 1
 ### Context:
 Nitrofurantoin is a commonly used antibiotic for the treatment of uncomplicated urinary tract infections (UTIs) in pregnant women. It is considered safe during pregnancy and is effective against common pathogens causing UTIs. Ampicillin and ceftriaxone are not the first-line choices for treating uncomplicated UTIs, and doxycycline is contraindicated in pregnancy due to potential adverse effects on fetal development.
 
@@ -14,12 +12,12 @@ A 23-year-old pregnant woman at 22 weeks gestation presents with burning upon ur
 (B) Ceftriaxone
 (C) Ciprofloxacin
 (D) Doxycycline
-(E) Nitrofurantoin
+(E) Nitrofurantoin</s>
+<|assistant|>
+(E) Nitrofurantoin.</s>
+<|user|>
+Select only one option. Don't explain your choice.
 
-The answer is (E) Nitrofurantoin
-</s>
-
-# Example 2
 ### Context:
 Placing the infant in a supine position on a firm mattress while sleeping is the recommended precaution to reduce the risk of sudden infant death syndrome (SIDS). This position helps maintain clear airways and minimizes the risk of suffocation. Avoiding practices such as covering the infant excessively, using devices to maintain sleeping position, and prohibiting pacifier use during sleep are not recommended and may pose additional risks.
 
@@ -29,20 +27,8 @@ A 3-month-old baby died suddenly at night while asleep. His mother noticed that 
 (B) Routine postnatal electrocardiogram (ECG)
 (C) Keeping the infant covered and maintaining a high room temperature
 (D) Application of a device to maintain the sleeping position
-(E) Avoiding pacifier use during sleep
-
-### Answer: 
-The answer is (A) Placing the infant in a supine position on a firm mattress while sleeping
-</s>
-
-This is yor context information:
-{context}
-</s>
-
-
-<|user|>
-Help me with this question. imitate your answer to only the correct choice.
-{question}
-</s>
-
+(E) Avoiding pacifier use during sleep</s>
 <|assistant|>
+(A) Placing the infant in a supine position on a firm mattress while sleeping.</s>
+<|user|>
+Now help me with another question. Just select only one option as you did so far. Don't explain your choice.
