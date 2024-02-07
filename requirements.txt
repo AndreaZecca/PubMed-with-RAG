@@ -21,3 +21,4 @@ pymilvus
 milvus
 tqdm
 click
+FlagEmbedding

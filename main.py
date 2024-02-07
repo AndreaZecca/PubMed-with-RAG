@@ -20,8 +20,7 @@ warnings.filterwarnings("ignore", message="")
 import transformers
 transformers.logging.set_verbosity_error()
 
-from utils import get_template, get_results_path
-from parse_dataset import parse_dataset, get_index_from_res
+from utils import get_template, get_results_path, parse_dataset, get_index_from_res
 
 load_dotenv()
 
@@ -36,23 +35,18 @@ global_context = []
 global_query = None
 global_debug = False
 global_rerank = False
-global_only_question = False
 global_rag = True
 
 
 embedder = None 
 reranker_model = None
 
-def format_query(query):
-    return query.split('(A)')[0]
 
 def format_docs(docs):
-    return "\n\n".join([d.page_content for d in docs])
+    return "\n".join([d.page_content for d in docs])
 
 def rerank_docs(docs):
-    global global_query, global_context, global_only_question
-    if global_only_question:
-        global_query = format_query(global_query)
+    global global_query, global_context
     # rerank docs
     pairs = [list((global_query, d.page_content)) for d in docs]
     scores = reranker_model.compute_score(pairs)
@@ -70,14 +64,25 @@ def process_docs(docs):
         global_context = [d.page_content for d in docs]
     return format_docs(docs)
 
-def test_dataset(dataset, llm, model, rag):
-    global global_debug, global_rerank, global_only_question, global_query, embedder, reranker_model
-    collection_name = 'medqa' if dataset in ['medqa_opt4', 'medqa_opt5'] else 'medmcqa'
+# def debug_prompt(prompt):
+#     global global_debug
+#     if global_debug:
+#         with open("debug_prompt.txt", "w") as f:
+#             f.write(prompt.messages[0].content)
+#     return prompt
+
+def test_dataset(dataset, llm, model, rag, force_medwiki=False):
+    global global_debug, global_rerank, global_query, embedder, reranker_model
+    
+    collection_name = 'medqa' if dataset in ['medqa_opt4', 'medqa_opt5'] else 'medmcqa_mmlu'
+    if force_medwiki:
+        collection_name = 'medmcqa_mmlu'
 
     with open(get_template(model, dataset, rag)) as f:
         usr_template = f.read()
-
+    
     prompt = ChatPromptTemplate.from_template(usr_template)
+    
     if rag:
         vector_db = Milvus(
             embedder,
@@ -85,10 +90,8 @@ def test_dataset(dataset, llm, model, rag):
             collection_name=collection_name,
         )
         retriever = vector_db.as_retriever(search_kwargs={"k": RETRIEVE_WITH_RERANK if global_rerank else KEEP_TOP})
-        if global_only_question:
-            base_chain = {"context": format_query | retriever | process_docs, "question": RunnablePassthrough()}
-        else:
-            base_chain = {"context": retriever | process_docs, "question": RunnablePassthrough()}
+
+        base_chain = {"context": retriever | process_docs, "question": RunnablePassthrough()}
     else:
         base_chain = {"question": RunnablePassthrough()}
 
@@ -131,7 +134,7 @@ def test_dataset(dataset, llm, model, rag):
         "right_answers": correct,
         "accuracy": correct / total_questions
     }
-    result_path = get_results_path(model, dataset, global_only_question)
+    result_path = get_results_path(model, dataset)
         
     if not rag:
         result_path = result_path.replace('.json', '_noRAG.json')
@@ -141,6 +144,9 @@ def test_dataset(dataset, llm, model, rag):
     
     if global_debug:
         result_path = result_path.replace('.json', '_debug.json')
+    
+    if force_medwiki:
+        result_path = result_path.replace('.json', '_usemedwiki.json')
 
     with open(result_path, "w") as f:
         json.dump(output_json, f, indent=4)   
@@ -153,20 +159,22 @@ def test_dataset(dataset, llm, model, rag):
 @click.option("--datasets", help="Dataset to use", required=True)
 @click.option("--rerank", help="Whether to use reranking", required=False, default=False)
 @click.option("--debug", help="Debug mode", required=False, default=False)
-@click.option("--only_question", help="Whetere to remove the answers from the query passed to the retriever", required=False, default=False)
 @click.option("--rag", help="Whether to use RAG", required=False, default=True)
-def main(model, datasets, rerank, debug, only_question, rag):
-    global global_debug, global_rerank, global_only_question, global_rag, embedder, reranker_model
+def main(model, datasets, rerank, debug, rag):
+    global global_debug, global_rerank, global_rag, embedder, reranker_model
     global_debug = debug
     global_rerank = rerank
-    global_only_question = only_question
     datasets = datasets.split(',')
-    model_kwargs={"torch_dtype": "auto", "temperature": 1e-16, "do_sample": True, 'pad_token_id': 0}
+    model_kwargs={"torch_dtype": "auto", "do_sample": False, 'pad_token_id': 0}
+
+    force_medwiki = True
 
     if rag:
         embedder = HuggingFaceEmbeddings(model_name="neuml/pubmedbert-base-embeddings")
-        reranker_model = FlagReranker('BAAI/bge-reranker-large', use_fp16=True) # use_fp16 speeds up computation with a slight performance degradation
+        if rerank:
+            reranker_model = FlagReranker('BAAI/bge-reranker-large', use_fp16=True)
     else:
+        global_rag = False
         global_rerank = False
 
     llm = HuggingFacePipeline.from_model_id(
@@ -177,8 +185,16 @@ def main(model, datasets, rerank, debug, only_question, rag):
             pipeline_kwargs={"max_new_tokens": 50},
     )
     for dataset in datasets:
-        print(f'Testing model {model} with dataset {dataset}')
-        accuracy = test_dataset(dataset, llm, model, rag)
+        print(f'Testing model {model} with dataset {dataset} ', end='')
+        if rag:
+            print('using RAG ', end='')
+        if rerank:
+            print('with reranking ', end='')
+        if debug:
+            print(' in debug mode ', end='')
+        print('\n')
+
+        accuracy = test_dataset(dataset, llm, model, rag, force_medwiki)
         print(f'Accuracy: {accuracy:.2f}%')
         print()
 

@@ -32,3 +32,10 @@ A 3-month-old baby died suddenly at night while asleep. His mother noticed that 
 (A) Placing the infant in a supine position on a firm mattress while sleeping.</s>
 <|user|>
 Now help me with another question. Just select only one option as you did so far. Don't explain your choice.
+
+### Context
+{context}
+
+### Question
+{question}</s>
+<|assistant|>

@@ -32,3 +32,10 @@ A 3-month-old baby died suddenly at night while asleep. His mother noticed that 
 The answer is (A) Placing the infant in a supine position on a firm mattress while sleeping
 
 Now, help me with this question. Remember to answer with just a string of one line starting with "The answer is" as shown by the previous examples.
+
+### Context:
+{context}
+
+### Question:
+{question}
+[/INST]

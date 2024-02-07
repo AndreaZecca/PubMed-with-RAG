@@ -1,0 +1,4 @@
+,medmcqa_opt4,medmcqa_opt4_rerank,medqa_opt4,medqa_opt4_rerank
+llama,,,,
+mistral,,,,
+zephyr,0.4697585464977289,0.4692804207506574,0.5137470542026709,0.5082482325216026
