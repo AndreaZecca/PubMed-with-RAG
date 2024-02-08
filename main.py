@@ -71,12 +71,13 @@ def process_docs(docs):
 #             f.write(prompt.messages[0].content)
 #     return prompt
 
-def test_dataset(dataset, llm, model, rag, force_medwiki=False):
+def test_dataset(dataset, llm, model, rag, collection=None):
     global global_debug, global_rerank, global_query, embedder, reranker_model
     
     collection_name = 'medqa' if dataset in ['medqa_opt4', 'medqa_opt5'] else 'medmcqa_mmlu'
-    if force_medwiki:
-        collection_name = 'medmcqa_mmlu'
+
+    if collection:
+        collection_name = collection
 
     with open(get_template(model, dataset, rag)) as f:
         usr_template = f.read()
@@ -142,11 +143,11 @@ def test_dataset(dataset, llm, model, rag, force_medwiki=False):
     if global_rerank:
         result_path = result_path.replace('.json', '_rerank.json')
     
+    if collection:
+        result_path = result_path.replace('.json', f'_{collection}.json')
+    
     if global_debug:
         result_path = result_path.replace('.json', '_debug.json')
-    
-    if force_medwiki:
-        result_path = result_path.replace('.json', '_usemedwiki.json')
 
     with open(result_path, "w") as f:
         json.dump(output_json, f, indent=4)   
@@ -160,7 +161,8 @@ def test_dataset(dataset, llm, model, rag, force_medwiki=False):
 @click.option("--rerank", help="Whether to use reranking", required=False, default=False)
 @click.option("--debug", help="Debug mode", required=False, default=False)
 @click.option("--rag", help="Whether to use RAG", required=False, default=True)
-def main(model, datasets, rerank, debug, rag):
+@click.option("--collection", help="Collection to use", required=False, default=None)
+def main(model, datasets, rerank, debug, rag, collection):
     global global_debug, global_rerank, global_rag, embedder, reranker_model
     global_debug = debug
     global_rerank = rerank
@@ -194,7 +196,7 @@ def main(model, datasets, rerank, debug, rag):
             print(' in debug mode ', end='')
         print('\n')
 
-        accuracy = test_dataset(dataset, llm, model, rag, force_medwiki)
+        accuracy = test_dataset(dataset, llm, model, rag, collection)
         print(f'Accuracy: {accuracy:.2f}%')
         print()
 

@@ -1,13 +1,13 @@
 declare -a models=(
+    'meta-llama/Llama-2-7b-chat-hf'
     'HuggingFaceH4/zephyr-7b-beta'
-    #'meta-llama/Llama-2-7b-chat-hf'
     #'mistralai/Mistral-7B-Instruct-v0.1'
 )
 declare -a datasets=(
     'medqa_opt4'
-    #'medqa_opt5'
-    #'medmcqa_opt4'
-    #'mmlu_opt4'
+    # 'medqa_opt5'
+    'medmcqa_opt4'
+    'mmlu_opt4'
 )
 
 debug=false
@@ -25,6 +25,6 @@ done
 
 for model in "${models[@]}"; do
     for rerank in "${reranks[@]}"; do
-        python3 main.py --model $model --datasets $datasets_string --rerank $rerank --debug $debug --rag $rag
+        python3 main.py --model $model --datasets $datasets_string --rerank $rerank --debug $debug --rag $rag --collection artificial
     done
 done
