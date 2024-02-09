@@ -1,6 +1,6 @@
 import pandas as pd
 
-DATA_PATH = './datasets/raw_data/mmlu_complete.csv'
+DATA_PATH = 'mmlu_medical 1.csv'
 
 df = pd.read_csv(DATA_PATH)
 
