@@ -30,11 +30,11 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=1_000, chunk_overlap=2
 
 def ingest_medqa(file_path: str):
     try:
-        utility.drop_collection("medqa")
-        print("old medqa collection dropped")
+        utility.drop_collection("textbooks")
+        print("old textbooks collection dropped")
     except:
         pass
-    print("Ingesting medqa...")
+    print("Ingesting textbooks...")
     documents = []
     for file in tqdm(glob.glob(os.path.join(file_path, "*.txt"))):
         with open(file, 'r') as f:
@@ -45,16 +45,16 @@ def ingest_medqa(file_path: str):
     _ = Milvus.from_documents(
         docs,
         embedder,
-        connection_args={"host":  "127.0.0.1", "port": "19530"}, collection_name="medqa"
+        connection_args={"host":  "127.0.0.1", "port": "19530"}, collection_name="textbooks"
     )
     
-def ingest_medmcqa_mmlu():
+def ingest_medwiki():
     try: 
-        utility.drop_collection("medmcqa_mmlu")
-        print("old medmcqa_mmlu collection dropped")
+        utility.drop_collection("medwiki")
+        print("old medwiki collection dropped")
     except:
         pass
-    print("Ingesting medmcqa and mmlu...")
+    print("Ingesting medwiki and mmlu...")
 
     from datasets import load_dataset
     dataset = load_dataset("VOD-LM/medwiki", split="train", trust_remote_code=True)
@@ -63,14 +63,14 @@ def ingest_medmcqa_mmlu():
 
     vector_db = Milvus(
         embedder,
-        connection_args={"host": "127.0.0.1", "port": "19530"}, collection_name="medmcqa_mmlu" )
+        connection_args={"host": "127.0.0.1", "port": "19530"}, collection_name="medwiki" )
     
     for i in tqdm(range(0, length, max_per_iter)):
         documents = []
         for j in range(i, min(i + max_per_iter, length)):
             document = dataset[j]
             text = document['document.title'] + document['document.text']
-            documents.append(Document(page_content=text, metadata={'source': "medmcqa"}))
+            documents.append(Document(page_content=text, metadata={'source': "medwiki"}))
         docs = text_splitter.split_documents(documents)
         vector_db.add_documents(docs)
 
@@ -128,11 +128,11 @@ def ingest_artificial():
 
 def ingest_all():
     ingest_medqa("datasets/context/medqa/")
-    ingest_medmcqa_mmlu()
-    ingest_artificial()
+    ingest_medwiki()
+    #ingest_artificial()
 
 @click.command()
-@click.option("--dataset", help="Dataset", required=True, type=click.Choice(["medqa", "medmcqa", "mmlu", "artificial", "all"]), default="all")
+@click.option("--dataset", help="Dataset", required=True, type=click.Choice(["medqa", 'medwiki', "artificial", "all"]), default="all")
 def main(dataset):    
     if dataset == "all":
         ingest_all()
@@ -140,8 +140,8 @@ def main(dataset):
         ingest_medqa("datasets/context/medqa/")
     elif dataset == "artificial":
         ingest_artificial()
-    elif dataset in ["medmcqa", 'mmlu']:
-        ingest_medmcqa_mmlu()
+    elif dataset == 'medwiki':
+        ingest_medwiki()
     else:
         raise ValueError("Invalid dataset")
 

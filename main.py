@@ -71,14 +71,9 @@ def process_docs(docs):
 #             f.write(prompt.messages[0].content)
 #     return prompt
 
-def test_dataset(dataset, llm, model, rag, collection=None):
+def test_dataset(dataset, llm, model, rag, collection):
     global global_debug, global_rerank, global_query, embedder, reranker_model
     
-    collection_name = 'medqa' if dataset in ['medqa_opt4', 'medqa_opt5'] else 'medmcqa_mmlu'
-
-    if collection:
-        collection_name = collection
-
     with open(get_template(model, dataset, rag)) as f:
         usr_template = f.read()
     
@@ -88,7 +83,7 @@ def test_dataset(dataset, llm, model, rag, collection=None):
         vector_db = Milvus(
             embedder,
             connection_args={"host": "127.0.0.1", "port": "19530"},
-            collection_name=collection_name,
+            collection_name=collection,
         )
         retriever = vector_db.as_retriever(search_kwargs={"k": RETRIEVE_WITH_RERANK if global_rerank else KEEP_TOP})
 
@@ -106,7 +101,7 @@ def test_dataset(dataset, llm, model, rag, collection=None):
     questions = parse_dataset(f"{dataset}.jsonl")
 
     if global_debug:
-        questions = questions[:3]
+        questions = questions[:10]
 
     correct = 0
     total_questions = len(questions)
@@ -136,15 +131,14 @@ def test_dataset(dataset, llm, model, rag, collection=None):
         "accuracy": correct / total_questions
     }
     result_path = get_results_path(model, dataset)
+
+    result_path = result_path.replace('.json', f'_{collection}.json')
         
     if not rag:
         result_path = result_path.replace('.json', '_noRAG.json')
     
     if global_rerank:
         result_path = result_path.replace('.json', '_rerank.json')
-    
-    if collection:
-        result_path = result_path.replace('.json', f'_{collection}.json')
     
     if global_debug:
         result_path = result_path.replace('.json', '_debug.json')
@@ -161,15 +155,13 @@ def test_dataset(dataset, llm, model, rag, collection=None):
 @click.option("--rerank", help="Whether to use reranking", required=False, default=False)
 @click.option("--debug", help="Debug mode", required=False, default=False)
 @click.option("--rag", help="Whether to use RAG", required=False, default=True)
-@click.option("--collection", help="Collection to use", required=False, default=None)
+@click.option("--collection", help="Collection to use", required=True, default='medwiki')
 def main(model, datasets, rerank, debug, rag, collection):
     global global_debug, global_rerank, global_rag, embedder, reranker_model
     global_debug = debug
     global_rerank = rerank
     datasets = datasets.split(',')
     model_kwargs={"torch_dtype": "auto", "do_sample": False, 'pad_token_id': 0}
-
-    force_medwiki = True
 
     if rag:
         embedder = HuggingFaceEmbeddings(model_name="neuml/pubmedbert-base-embeddings")
@@ -187,13 +179,13 @@ def main(model, datasets, rerank, debug, rag, collection):
             pipeline_kwargs={"max_new_tokens": 50},
     )
     for dataset in datasets:
-        print(f'Testing model {model} with dataset {dataset} ', end='')
+        print(f'Testing model {model} with dataset {dataset} on collection {collection} ', end='')
         if rag:
             print('using RAG ', end='')
         if rerank:
             print('with reranking ', end='')
         if debug:
-            print(' in debug mode ', end='')
+            print('in debug mode', end='')
         print('\n')
 
         accuracy = test_dataset(dataset, llm, model, rag, collection)
