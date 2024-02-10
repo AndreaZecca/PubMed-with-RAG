@@ -1,18 +1,19 @@
 declare -a models=(
-    #'meta-llama/Llama-2-7b-chat-hf'
-    #'HuggingFaceH4/zephyr-7b-beta'
+    'meta-llama/Llama-2-7b-chat-hf'
+    'HuggingFaceH4/zephyr-7b-beta'
     'mistralai/Mistral-7B-Instruct-v0.1'
 )
+
 declare -a datasets=(
     'medqa_opt4'
-    # 'medqa_opt5'
-    # 'medmcqa_opt4'
-    # 'mmlu_opt4'
+    'medqa_opt5'
+    'medmcqa_opt4'
+    'mmlu_opt4'
 )
 
-debug=true
+debug=false
 rag=true
-collection=textbooks
+collection=medwiki_artificial
 
 declare -a reranks=(
     'true'

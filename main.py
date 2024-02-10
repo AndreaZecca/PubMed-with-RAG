@@ -52,7 +52,12 @@ def rerank_docs(docs):
     scores = reranker_model.compute_score(pairs)
     permutation = np.argsort(scores)[::-1]
     docs = [docs[i] for i in permutation]
-    global_context = [d.page_content for d in docs]
+    global_context = [
+        {
+            "content": d.page_content,
+            "source": "generated" if d.metadata["source"] == "artificial" else "retrieved",
+        } for d in docs
+    ]
     docs = docs[:KEEP_TOP]
     return docs
 
@@ -61,15 +66,20 @@ def process_docs(docs):
     if global_rerank:
         docs = rerank_docs(docs)
     else:
-        global_context = [d.page_content for d in docs]
+        global_context = [
+        {
+            "content": d.page_content,
+            "source": "generated" if d.metadata["source"] == "artificial" else "retrieved",
+        } for d in docs
+    ]
     return format_docs(docs)
 
-# def debug_prompt(prompt):
-#     global global_debug
-#     if global_debug:
-#         with open("debug_prompt.txt", "w") as f:
-#             f.write(prompt.messages[0].content)
-#     return prompt
+def debug_prompt(prompt):
+    global global_debug
+    if global_debug:
+        with open("debug_prompt.txt", "w") as f:
+            f.write(prompt.messages[0].content)
+    return prompt
 
 def test_dataset(dataset, llm, model, rag, collection):
     global global_debug, global_rerank, global_query, embedder, reranker_model
