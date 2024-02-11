@@ -54,7 +54,7 @@ def ingest_medwiki():
         print("old medwiki collection dropped")
     except:
         pass
-    print("Ingesting medwiki and mmlu...")
+    print("Ingesting medwiki")
 
     from datasets import load_dataset
     dataset = load_dataset("VOD-LM/medwiki", split="train", trust_remote_code=True)
@@ -63,7 +63,7 @@ def ingest_medwiki():
 
     vector_db = Milvus(
         embedder,
-        connection_args={"host": "127.0.0.1", "port": "19530"}, collection_name="medwiki" )
+        connection_args={"host": "127.0.0.1", "port": "19530"}, collection_name="medwiki")
     
     for i in tqdm(range(0, length, max_per_iter)):
         documents = []
@@ -75,31 +75,50 @@ def ingest_medwiki():
         vector_db.add_documents(docs)
 
 def ingest_artificial():
-    dev_artificial_medqa = json.load(open('datasets/context/artificial/DEV_medmcqa_artificial_ctxs.json'))
-    test_artificial_medqa = json.load(open('datasets/context/artificial/TEST_medqa_4op_artificial_ctxs.json'))
-
-    dev_docs = [ctx['text'] for item in dev_artificial_medqa for ctx in item['ctxs']]
-    test_docs = [ctx['text'] for item in test_artificial_medqa for ctx in item['ctxs']]
-
-    dev_docs = [Document(page_content=doc, metadata={'source': "artificial"}) for doc in dev_docs]
-    test_docs = [Document(page_content=doc, metadata={'source': "artificial"}) for doc in test_docs]
-
-    dev_docs = text_splitter.split_documents(dev_docs)
-    test_docs = text_splitter.split_documents(test_docs)
-
-    utility.rename_collection("medwiki", "medwiki_artificial")
+    print('Renaming medwiki to medwiki_artificial_complete')
+    utility.rename_collection("medwiki", "medwiki_artificial_complete")
 
     vector_db = Milvus(
         embedder,
-        connection_args={"host": "127.0.0.1", "port": "19530"}, collection_name="medwiki_artificial")
+        connection_args={"host": "127.0.0.1", "port": "19530"}, collection_name="medwiki_artificial_complete")
+
+    print('Ingesting DEV_medmcqa_artificial')
+    DEV_medmcqa_artificial = json.load(open('datasets/context/artificial/DEV_medmcqa_artificial_ctxs.json'))
+    DEV_medmcqa_artificial_docs = [ctx['text'] for item in DEV_medmcqa_artificial for ctx in item['ctxs']]
+    DEV_medmcqa_artificial_docs = [Document(page_content=doc, metadata={'source': "artificial"}) for doc in DEV_medmcqa_artificial_docs]
+    DEV_medmcqa_artificial_docs = text_splitter.split_documents(DEV_medmcqa_artificial_docs)
+    vector_db.add_documents(DEV_medmcqa_artificial_docs)
+
+    print('Ingesting TEST_medqa_4op_artificial')
+    TEST_medqa_4op_artificial = json.load(open('datasets/context/artificial/TEST_medqa_4op_artificial_ctxs.json'))
+    TEST_medqa_4op_artificial_docs = [ctx['text'] for item in TEST_medqa_4op_artificial for ctx in item['ctxs']]
+    TEST_medqa_4op_artificial_docs = [Document(page_content=doc, metadata={'source': "artificial"}) for doc in TEST_medqa_4op_artificial_docs]
+    TEST_medqa_4op_artificial_docs = text_splitter.split_documents(TEST_medqa_4op_artificial_docs)
+    vector_db.add_documents(TEST_medqa_4op_artificial_docs)
+
+    print('Ingesting TRAIN_FID_medqa_4op_ABCD_DEF')
+    TRAIN_FID_medqa_4op_ABCD_DEF = json.load(open('datasets/context/artificial/TRAIN_FID_medqa_4op_ABCD_DEF.json'))
+    TRAIN_FID_medqa_4op_ABCD_DEF_docs = [ctx['text'] for item in TRAIN_FID_medqa_4op_ABCD_DEF for ctx in item['ctxs']]
+    TRAIN_FID_medqa_4op_ABCD_DEF_docs = [Document(page_content=doc, metadata={'source': "artificial"}) for doc in TRAIN_FID_medqa_4op_ABCD_DEF_docs]
+    TRAIN_FID_medqa_4op_ABCD_DEF_docs = text_splitter.split_documents(TRAIN_FID_medqa_4op_ABCD_DEF_docs)
+    vector_db.add_documents(TRAIN_FID_medqa_4op_ABCD_DEF_docs)
+
+    print('Ingesting TRAIN_FID_medmcqa_100percent')
+    TRAIN_FID_medmcqa_100percent = json.load(open('datasets/context/artificial/TRAIN_FID_medmcqa_100percent.json'))
+    TRAIN_FID_medmcqa_100percent_docs = [ctx['text'] for item in TRAIN_FID_medmcqa_100percent for ctx in item['ctxs']]
+    total_length = len(TRAIN_FID_medmcqa_100percent_docs)
+    max_per_iter = 10_000
+    for i in tqdm(range(0, total_length, max_per_iter)):
+        documents = []
+        for j in range(i, min(i + max_per_iter, total_length)):
+            documents.append(Document(page_content=TRAIN_FID_medmcqa_100percent_docs[j], metadata={'source': "artificial"}))
+        docs = text_splitter.split_documents(documents)
+        vector_db.add_documents(docs)
+
     
-    vector_db.add_documents(dev_docs)
-    vector_db.add_documents(test_docs)
 
 def ingest_all():
-    ingest_medqa("datasets/context/medqa/")
-    ingest_medwiki()
-    #ingest_artificial()
+    raise NotImplementedError("Not implemented yet")
 
 @click.command()
 @click.option("--dataset", help="Dataset", required=True, type=click.Choice(["medqa", 'medwiki', "artificial", "all"]), default="all")

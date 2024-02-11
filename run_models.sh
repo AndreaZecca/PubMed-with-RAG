@@ -13,7 +13,7 @@ declare -a datasets=(
 
 debug=false
 rag=true
-collection=medwiki_artificial
+collection=medwiki_artificial_complete
 
 declare -a reranks=(
     'true'
